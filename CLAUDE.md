@@ -25,4 +25,4 @@ Single-file FastAPI app (`main.py`). Dependencies are managed with `uv` — use 
 ## Hooks
 
 - **PostToolUse (Edit|Write):** auto-runs `uvx ruff format` on every edited `.py` file
-- **PreToolUse (Bash):** auto-runs `uvx ruff format`, `uvx ruff check --fix`, and `uvx pyright` before any `git commit`; auto-runs `uv run pytest` before any `git push`
+- **PreToolUse (Bash):** auto-runs `uvx ruff format`, `uvx ruff check --fix`, and `uv run pyright` before any `git commit`; auto-runs `uv run pytest` before any `git push`

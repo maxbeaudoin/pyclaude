@@ -5,7 +5,7 @@ A FastAPI app with a full local and CI quality toolchain.
 ## Quick Start
 
 ```bash
-uv run fastapi dev main.py
+uv run fastapi dev src/main.py
 ```
 
 Visit http://localhost:8000

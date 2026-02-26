@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 # Run the dev server
-uv run fastapi dev main.py
+uv run fastapi dev src/main.py
 
 # Lint and auto-fix
 uvx ruff check --fix

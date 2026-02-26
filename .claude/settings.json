@@ -11,15 +11,15 @@
         "hooks": [
           {
             "type": "command",
-            "command": "cmd=$(jq -r '.tool_input.command'); echo \"$cmd\" | grep -q 'git commit'; uvx ruff format"
+            "command": "cmd=$(jq -r '.tool_input.command'); if echo \"$cmd\" | grep -q 'git commit'; then uvx ruff format; fi"
           },
           {
             "type": "command",
-            "command": "cmd=$(jq -r '.tool_input.command'); echo \"$cmd\" | grep -q 'git commit'; uvx ruff check --fix"
+            "command": "cmd=$(jq -r '.tool_input.command'); if echo \"$cmd\" | grep -q 'git commit'; then uvx ruff check --fix; fi"
           },
           {
             "type": "command",
-            "command": "cmd=$(jq -r '.tool_input.command'); echo \"$cmd\" | grep -q 'git push'; uv run pytest"
+            "command": "cmd=$(jq -r '.tool_input.command'); if echo \"$cmd\" | grep -q 'git push'; then uv run pytest; fi"
           }
         ]
       }

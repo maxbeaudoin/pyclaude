@@ -19,3 +19,9 @@ if ! uvx ruff check --fix; then
   echo "ruff check found unfixable errors" >&2
   exit 2
 fi
+
+echo "--- pyright ---"
+if ! uv run pyright; then
+  echo "pyright found type errors" >&2
+  exit 2
+fi

@@ -18,3 +18,5 @@ jobs:
       - uses: astral-sh/setup-uv@v5
       - run: uv sync --dev
       - uses: jakebailey/pyright-action@v2
+        with:
+          extra-args: --pythonpath .venv/bin/python

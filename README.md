@@ -1,32 +1,46 @@
 # pyclaude
 
-A project created with FastAPI CLI.
+A FastAPI app with a full local and CI quality toolchain.
 
 ## Quick Start
 
-### Start the development server
-
 ```bash
-uv run fastapi dev
+uv run fastapi dev src/main.py
 ```
 
 Visit http://localhost:8000
 
-### Deploy to FastAPI Cloud
-
-> FastAPI Cloud is currently in private beta. Join the waitlist at https://fastapicloud.com
+## Development
 
 ```bash
-uv run fastapi login
-uv run fastapi deploy
+# Lint and auto-fix
+uvx ruff check --fix
+
+# Format
+uvx ruff format
+
+# Type check
+uv run pyright
+
+# Run tests
+uv run pytest
 ```
 
-## Project Structure
+## Tooling
 
-- `main.py` - Your FastAPI application
-- `pyproject.toml` - Project dependencies
+- **Formatter/Linter:** [Ruff](https://docs.astral.sh/ruff/)
+- **Type checker:** [Pyright](https://github.com/microsoft/pyright)
+- **Test runner:** [pytest](https://pytest.org)
+- **Package manager:** [uv](https://docs.astral.sh/uv/)
 
-## Learn More
+## Hooks
 
-- [FastAPI Documentation](https://fastapi.tiangolo.com)
-- [FastAPI Cloud](https://fastapicloud.com)
+Claude Code hooks enforce quality automatically:
+
+- **On file edit:** `ruff format` runs on every `.py` file
+- **On `git commit`:** `ruff format`, `ruff check --fix`, and `pyright` must pass
+- **On `git push`:** `pytest` must pass
+
+## CI
+
+GitHub Actions runs on every pull request: lint, format check, type check, and tests.

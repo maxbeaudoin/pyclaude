@@ -18,5 +18,3 @@ jobs:
       - uses: astral-sh/setup-uv@v5
       - run: uv sync --dev
       - uses: jakebailey/pyright-action@v2
-        with:
-          venv-path: .venv

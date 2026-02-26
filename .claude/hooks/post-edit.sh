@@ -4,5 +4,7 @@
 
 file=$(jq -r '.tool_input.file_path')
 
+[[ "$file" == *.py ]] || exit 0
+
 echo "--- ruff format ---"
 uvx ruff format "$file"

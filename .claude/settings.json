@@ -11,15 +11,11 @@
         "hooks": [
           {
             "type": "command",
-            "command": "cmd=$(jq -r '.tool_input.command'); if echo \"$cmd\" | grep -q 'git commit'; then uvx ruff format; fi"
+            "command": "bash .claude/hooks/pre-commit.sh"
           },
           {
             "type": "command",
-            "command": "cmd=$(jq -r '.tool_input.command'); if echo \"$cmd\" | grep -q 'git commit'; then uvx ruff check --fix; fi"
-          },
-          {
-            "type": "command",
-            "command": "cmd=$(jq -r '.tool_input.command'); if echo \"$cmd\" | grep -q 'git push'; then uv run pytest; fi"
+            "command": "bash .claude/hooks/pre-push.sh"
           }
         ]
       }

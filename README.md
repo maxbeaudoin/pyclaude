@@ -33,15 +33,7 @@ uv run pytest
 - **Test runner:** [pytest](https://pytest.org)
 - **Package manager:** [uv](https://docs.astral.sh/uv/)
 
-## Hooks
-
-Claude Code hooks enforce quality automatically:
-
-- **On file edit:** `ruff format` runs on every `.py` file
-- **On `git commit`:** `ruff format`, `ruff check --fix`, and `pyright` must pass
-- **On `git push`:** `pytest` must pass
-
-## Extending Claude Code
+## Experimenting with Claude Code
 
 All `*.local.*` files are gitignored — use them for personal preferences without affecting teammates:
 

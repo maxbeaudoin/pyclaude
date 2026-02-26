@@ -41,6 +41,16 @@ Claude Code hooks enforce quality automatically:
 - **On `git commit`:** `ruff format`, `ruff check --fix`, and `pyright` must pass
 - **On `git push`:** `pytest` must pass
 
+## Extending Claude Code
+
+All `*.local.*` files are gitignored — use them for personal preferences without affecting teammates:
+
+| File | Purpose |
+|------|---------|
+| `CLAUDE.local.md` | Personal instructions added to the shared `CLAUDE.md` |
+| `.claude/settings.local.json` | Personal tool permissions (e.g. pre-approve `git push`) |
+| `.claude/skills/<name>-local/` | Personal skill overrides (shadow shared skills by base name) |
+
 ## CI
 
 GitHub Actions runs on every pull request: lint, format check, type check, and tests.

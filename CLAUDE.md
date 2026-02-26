@@ -1,0 +1,28 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Commands
+
+```bash
+# Run the dev server
+uv run fastapi dev main.py
+
+# Lint and auto-fix
+uvx ruff check --fix
+
+# Format
+uvx ruff format
+
+# Run tests
+uv run pytest
+```
+
+## Architecture
+
+Single-file FastAPI app (`main.py`). Dependencies are managed with `uv` — use `uv add <package>` to add dependencies, which updates `pyproject.toml` and `uv.lock`.
+
+## Hooks
+
+- **PostToolUse (Edit|Write):** auto-runs `uvx ruff format` on every edited file
+- **PreToolUse (Bash):** auto-runs `uvx ruff check --fix` before any `git commit`; auto-runs `uv run pytest` before any `git push`
